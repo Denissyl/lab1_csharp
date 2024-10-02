@@ -1,25 +1,42 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33122.133
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Все вхождения(4.9)", "Все вхождения(4.9)\Все вхождения(4.9).csproj", "{53B706EA-CFCB-4569-AAFF-18A726F66959}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{53B706EA-CFCB-4569-AAFF-18A726F66959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53B706EA-CFCB-4569-AAFF-18A726F66959}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53B706EA-CFCB-4569-AAFF-18A726F66959}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53B706EA-CFCB-4569-AAFF-18A726F66959}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EE2815FB-5E0C-429F-9B55-F713ADC77AD8}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    public static int[] FindAll(int[] arr, int x)
+    {
+        List<int> indices = new List<int>(); // список для хранения индексов
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == x)
+            {
+                indices.Add(i); // добавляем индекс в список
+            }
+        }
+        return indices.ToArray(); // преобразуем список в массив
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Введите элементы массива через пробел:");
+        int[] arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+
+        Console.WriteLine("Введите число для поиска:");
+        if (int.TryParse(Console.ReadLine(), out int number))
+        {
+            int[] indices = FindAll(arr, number);
+            if (indices.Length > 0)
+            {
+                Console.WriteLine("Индексы всех вхождений числа " + number + ": " + string.Join(", ", indices));
+            }
+            else
+            {
+                Console.WriteLine("Число не найдено в массиве.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод!");
+        }
+    }
+}
