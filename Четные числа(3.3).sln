@@ -1,25 +1,27 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33122.133
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Четные числа(3.3)", "Четные числа(3.3)\Четные числа(3.3).csproj", "{E77414D8-C800-432E-A24D-142C3F983C60}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E77414D8-C800-432E-A24D-142C3F983C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E77414D8-C800-432E-A24D-142C3F983C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E77414D8-C800-432E-A24D-142C3F983C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E77414D8-C800-432E-A24D-142C3F983C60}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FD52BA87-C243-47DB-AC1A-1B0928A65119}
-	EndGlobalSection
-EndGlobal
+using System;
+
+class Program
+{
+    public static string Chet(int x)
+    {
+        string result = ""; // строка для хранения четных чисел
+        for (int i = 0; i <= x; i += 2) // проходим от 0 до x с шагом 2
+        {
+            result += i + " "; // добавляем четное число в строку
+        }
+        return result.Trim(); // удаляем лишний пробел в конце
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Введите число:");
+        if (int.TryParse(Console.ReadLine(), out int number))
+        {
+            Console.WriteLine($"Четные числа от 0 до {number}: {Chet(number)}");
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод!");
+        }
+    }
+}
