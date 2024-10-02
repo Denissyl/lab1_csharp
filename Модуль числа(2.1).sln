@@ -1,25 +1,22 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33122.133
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Модуль числа(2.1)", "Модуль числа(2.1)\Модуль числа(2.1).csproj", "{0EF203E8-91BF-4723-846A-5F653A064B40}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0EF203E8-91BF-4723-846A-5F653A064B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EF203E8-91BF-4723-846A-5F653A064B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EF203E8-91BF-4723-846A-5F653A064B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EF203E8-91BF-4723-846A-5F653A064B40}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {09530ACD-2C2D-40DB-BB2E-29CEF71FA9BF}
-	EndGlobalSection
-EndGlobal
+using System;
+
+class Program
+{
+    public static int Abs(int x)
+    {
+        return Math.Abs(x);
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Введите целое число:");
+        if (int.TryParse(Console.ReadLine(), out int number))
+        {
+            Console.WriteLine($"Модуль числа {number} = {Abs(number)}");
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод!");
+        }
+    }
+}
