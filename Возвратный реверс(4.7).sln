@@ -1,25 +1,23 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33122.133
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Возвратный реверс(4.7)", "Возвратный реверс(4.7)\Возвратный реверс(4.7).csproj", "{81093109-6E12-49FE-98E1-120430D22222}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{81093109-6E12-49FE-98E1-120430D22222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81093109-6E12-49FE-98E1-120430D22222}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81093109-6E12-49FE-98E1-120430D22222}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81093109-6E12-49FE-98E1-120430D22222}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {95563EDE-5EEB-4624-A837-B736993CD9D5}
-	EndGlobalSection
-EndGlobal
+using System;
+
+class Program
+{
+    public static int[] ReverseBack(int[] arr)
+    {
+        int[] reversed = new int[arr.Length];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            reversed[i] = arr[arr.Length - 1 - i]; // копируем элементы в обратном порядке
+        }
+        return reversed;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Введите элементы массива через пробел:");
+        int[] arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+
+        int[] reversedArray = ReverseBack(arr);
+        Console.WriteLine("Массив в обратном порядке: " + string.Join(", ", reversedArray));
+    }
+}
