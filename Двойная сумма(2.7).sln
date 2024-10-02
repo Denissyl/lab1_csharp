@@ -1,25 +1,23 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33122.133
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Двойная сумма(2.7)", "Двойная сумма(2.7)\Двойная сумма(2.7).csproj", "{1B8AEEDD-A91C-4998-8EED-E31E8BE6BEBA}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1B8AEEDD-A91C-4998-8EED-E31E8BE6BEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B8AEEDD-A91C-4998-8EED-E31E8BE6BEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B8AEEDD-A91C-4998-8EED-E31E8BE6BEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B8AEEDD-A91C-4998-8EED-E31E8BE6BEBA}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E99284ED-29E3-4266-8F88-C10C02EC1C51}
-	EndGlobalSection
-EndGlobal
+using System;
+
+class Program
+{
+    public static int Sum2(int x, int y)
+    {
+        int sum = x + y;
+        return (sum >= 10 && sum <= 19) ? 20 : sum;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Введите два числа:");
+        if (int.TryParse(Console.ReadLine(), out int x) && int.TryParse(Console.ReadLine(), out int y))
+        {
+            Console.WriteLine($"Результат сложения: {Sum2(x, y)}");
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод!");
+        }
+    }
+}
