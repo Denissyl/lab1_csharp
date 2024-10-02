@@ -1,25 +1,25 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33122.133
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Квадрат(3.7)", "Квадрат(3.7)\Квадрат(3.7).csproj", "{4BFB0EF9-FA5C-4B0A-B731-04195451D44D}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4BFB0EF9-FA5C-4B0A-B731-04195451D44D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BFB0EF9-FA5C-4B0A-B731-04195451D44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BFB0EF9-FA5C-4B0A-B731-04195451D44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BFB0EF9-FA5C-4B0A-B731-04195451D44D}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {00D715FE-192C-4111-949A-ED2DDBA0CA6B}
-	EndGlobalSection
-EndGlobal
+using System;
+
+class Program
+{
+    public static void Square(int size)
+    {
+        for (int i = 0; i < size; i++) // проходим по высоте квадрата
+        {
+            Console.WriteLine(new string('*', size)); // выводим строку из '*' длиной size
+        }
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Введите размер квадрата:");
+        if (int.TryParse(Console.ReadLine(), out int size) && size > 0) // проверяем ввод
+        {
+            Square(size); // вызываем метод для рисования квадрата
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод! Введите положительное число.");
+        }
+    }
+}
